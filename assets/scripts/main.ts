@@ -2,7 +2,7 @@ import { _decorator, Component, director, Vec3, AudioSource, Event, NodeEventTyp
 const { ccclass, property } = _decorator;
 
 const step: number = 15;
-const SCORE: number = 10; // 谁先10分谁胜利
+const SCORE: number = 15; // 谁先10分谁胜利
 
 @ccclass('main')
 export class main extends Component {

@@ -142,7 +142,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 320,
+    "_orthoHeight": 368.2672233820459,
     "_near": 0,
     "_far": 2000,
     "_color": {
@@ -174,7 +174,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "win",
+    "_name": "girl_win",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -192,8 +192,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 41.339000000000055,
-      "y": 39.24199999999996,
+      "x": 2.526,
+      "y": -0.939,
       "z": 0
     },
     "_lrot": {
@@ -205,9 +205,9 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 5.002,
-      "y": 5.002,
-      "z": 5.002
+      "x": 1,
+      "y": 1,
+      "z": 1
     },
     "_layer": 33554432,
     "_euler": {
@@ -216,7 +216,7 @@
       "y": 0,
       "z": 0
     },
-    "_id": "b65M+k4JdNh6BFq+5VUDQK"
+    "_id": "d7OAC+kRxNOYLpWSn32L++"
   },
   {
     "__type__": "cc.UITransform",
@@ -229,18 +229,18 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 40,
-      "height": 36
+      "width": 960,
+      "height": 640
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
       "y": 0.5
     },
-    "_id": "b7d/6weWlDZ4x8A6bmRkIw"
+    "_id": "c5Rg7v0QBJspvAyj1AcfT6"
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.VideoPlayer",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -248,34 +248,22 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "_customMaterial": null,
-    "_srcBlendFactor": 2,
-    "_dstBlendFactor": 4,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 230,
-      "g": 34,
-      "b": 34,
-      "a": 255
+    "_resourceType": 1,
+    "_remoteURL": "",
+    "_clip": {
+      "__uuid__": "ce123242-9362-4946-b613-ac68a45e9ac8",
+      "__expectedType__": "cc.VideoClip"
     },
-    "_spriteFrame": {
-      "__uuid__": "57520716-48c8-4a19-8acf-41c9f8777fb0@f9941",
-      "__expectedType__": "cc.SpriteFrame"
-    },
-    "_type": 0,
-    "_fillType": 0,
-    "_sizeMode": 1,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_useGrayscale": false,
-    "_atlas": null,
-    "_id": "62/pYkrkpHMpRH+KUMVrQc"
+    "_playOnAwake": true,
+    "_volume": 1,
+    "_mute": false,
+    "_playbackRate": 1,
+    "_loop": false,
+    "_fullScreenOnAwake": true,
+    "_stayOnBottom": false,
+    "_keepAspectRatio": false,
+    "videoPlayerEvent": [],
+    "_id": "2932fFFN5BGqleylops3xa"
   },
   {
     "__type__": "cc.UITransform",
