@@ -1,4 +1,4 @@
-import { _decorator, Component, director, Vec3, AudioSource, Event, NodeEventType, EventTouch } from 'cc';
+import { _decorator, Component, director, Vec3, AudioSource, Event, NodeEventType, find } from 'cc';
 const { ccclass, property } = _decorator;
 
 const step: number = 15;
@@ -6,6 +6,7 @@ const SCORE: number = 15; // 谁先10分谁胜利
 
 @ccclass('main')
 export class main extends Component {
+
 
     score = 0;
 
@@ -36,18 +37,29 @@ export class main extends Component {
 
     check() {
         if (this.score >= SCORE) {
-            console.log('boys win');
-            director.loadScene('boys_win');
+            console.log('result', find('main_canvas'));
+            find('main_canvas').active = false;
+            find('girls_win').active = false;
+            find('boys_win').active = true;
             return true;
         }
 
         if (this.score <= -SCORE) {
-            console.log('girls win');
-            director.loadScene('girls_win');
+            find('main_canvas').active = false;
+            find('boys_win').active = false;
+            find('girls_win').active = true;
             return true;
         }
 
         return false;
+    }
+
+    win_finish(_, eventType: string) {
+        if (eventType === 'completed') {
+            find('boys_win').active = false;
+            find('girls_win').active = false;
+            find('main_canvas').active = true;
+        }
     }
 }
 
