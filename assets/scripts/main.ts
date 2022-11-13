@@ -1,4 +1,4 @@
-import { _decorator, Component, director, Vec3, AudioSource, Event, NodeEventType, find } from 'cc';
+import { _decorator, Component, Node, Vec3, AudioSource, Event, NodeEventType, find, VideoPlayer, Vec2 } from 'cc';
 const { ccclass, property } = _decorator;
 
 const step: number = 15;
@@ -7,11 +7,30 @@ const SCORE: number = 15; // 谁先10分谁胜利
 @ccclass('main')
 export class main extends Component {
 
+    @property({
+        type: Node,
+    })
+    game: Node;
+
+    @property({
+        type: Node,
+    })
+    left_win: Node;
+
+    @property({
+        type: Node,
+    })
+    right_win: Node;
+
+
+
 
     score = 0;
 
     start() {
-        // this.getComponent(AudioSource).play();
+        this.game.active = true;
+        this.left_win.active = false;
+        this.right_win.active = false;
     }
 
     update(deltaTime: number) {
@@ -37,28 +56,35 @@ export class main extends Component {
 
     check() {
         if (this.score >= SCORE) {
-            console.log('result', find('main_canvas'));
-            find('main_canvas').active = false;
-            find('girls_win').active = false;
-            find('boys_win').active = true;
+            this.game.active = false;
+            this.left_win.active = true;
+            this.right_win.active = false;
+            const player = this.left_win.getComponentInChildren(VideoPlayer);
+            player.play();
             return true;
         }
 
         if (this.score <= -SCORE) {
-            find('main_canvas').active = false;
-            find('boys_win').active = false;
-            find('girls_win').active = true;
+            this.game.active = false;
+            this.left_win.active = false;
+            this.right_win.active = true;
+            const player = this.right_win.getComponentInChildren(VideoPlayer);
+            player.play();
             return true;
         }
 
         return false;
     }
 
-    win_finish(_, eventType: string) {
+    win_finish(player: VideoPlayer, eventType: string) {
+        console.log('win finish', player, eventType);
         if (eventType === 'completed') {
-            find('boys_win').active = false;
-            find('girls_win').active = false;
-            find('main_canvas').active = true;
+            this.game.active = true;
+            this.left_win.active = false;
+            this.right_win.active = false;
+            this.score = 0;
+            this.node.position = new Vec3(0, 0);
+
         }
     }
 }
