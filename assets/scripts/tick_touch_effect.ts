@@ -17,6 +17,7 @@ export class tick_touch_effect extends Component {
     play(event: EventTouch) {
         const eventTarget = new EventTarget();
         const { x, y } = event.getLocation();
+        console.log(event.getLocation());
         const location = new Vec3(x, y, 0);
         const worldPosition = new Vec3();
         const uiCamera = this.cameraNode.getComponent(Camera)!;
